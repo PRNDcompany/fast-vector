@@ -1,12 +1,20 @@
 {
   "name": "fast-vector",
   "version": "1.0.2",
-  "main": "index.js",
-  "author": {
-    "name": "dean",
-    "email": "margintop3498@icloud.com"
+  "bugs": {
+    "url": "https://github.com/PRNDcompany/fast-vector/issues",
+    "email": "dean@prnd.co.kr"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PRNDcompany/fast-vector.git"
   },
   "license": "MIT",
+  "author": {
+    "name": "dean",
+    "email": "dean@prnd.co.kr"
+  },
+  "main": "index.js",
   "scripts": {
     "build": "tsc",
     "deploy": "yarn build && yarn publish"

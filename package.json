@@ -1,0 +1,14 @@
+{
+  "name": "fast-vector",
+  "version": "1.0.1",
+  "main": "index.js",
+  "author": {
+    "name": "dean",
+    "email": "margintop3498@icloud.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "deploy": "yarn build && yarn publish"
+  }
+}

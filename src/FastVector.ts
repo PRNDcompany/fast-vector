@@ -9,6 +9,12 @@ function clamp01(value: number): number {
 }
 
 export default class FastVector {
+  public static readonly zero = new FastVector(0, 0);
+  public static readonly up = new FastVector(0, -1);
+  public static readonly down = new FastVector(0, 1);
+  public static readonly left = new FastVector(-1, 0);
+  public static readonly right = new FastVector(1, 0);
+
   public static epsilon = 0.00001;
 
   public static lerp(a: FastVector, b: FastVector, t: number): FastVector {
@@ -43,9 +49,9 @@ export default class FastVector {
     return a.x * b.x + a.y * b.y;
   }
 
-  public static reflect(a: FastVector, b: FastVector) {
-    const factor = -2 * FastVector.dot(b, a);
-    return new FastVector(factor * b.x + a.x, factor * b.y + a.y);
+  public static reflect(i: FastVector, n: FastVector) {
+    const factor = -2 * FastVector.dot(n, i);
+    return new FastVector(factor * n.x + i.x, factor * n.y + i.y);
   }
 
   public static equals(a: FastVector, b: FastVector): boolean {
@@ -68,18 +74,6 @@ export default class FastVector {
     }
   }
 
-  public static toObject(a: FastVector): { x: number; y: number; } {
-    return { x: a.x, y: a.y };
-  }
-
-  public static toArray(a: FastVector): [number, number] {
-    return [a.x, a.y];
-  }
-
-  public static toString(a: FastVector): string {
-    return `(${a.x}, ${a.y})`;
-  }
-
   public x: number;
   public y: number;
 
@@ -87,4 +81,22 @@ export default class FastVector {
     this.x = x;
     this.y = y;
   }
+
+  public toObject(): { x: number; y: number; } {
+    return { x: this.x, y: this.y };
+  }
+
+  public toArray(): [number, number] {
+    return [this.x, this.y];
+  }
+
+  public toString(): string {
+    return `(${this.x}, ${this.y})`;
+  }
 }
+
+Object.freeze(FastVector.zero);
+Object.freeze(FastVector.up);
+Object.freeze(FastVector.down);
+Object.freeze(FastVector.left);
+Object.freeze(FastVector.right);

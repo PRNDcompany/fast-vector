@@ -1,5 +1,6 @@
 # fast-vector
 
+
 ## Instalation
 ```shell script
 yarn add fast-vector

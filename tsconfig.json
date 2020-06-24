@@ -17,8 +17,9 @@
     "declaration": true
   },
   "exclude": [
-    "index.js",
-    "index.d.ts",
+    "src/**/*.spec.ts",
+    "FastVector.js",
+    "FastVector.d.ts",
     "node_modules"
   ]
 }

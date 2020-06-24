@@ -16,7 +16,15 @@
   },
   "main": "index.js",
   "scripts": {
+    "test:watch": "jest --watchAll",
+    "test": "jest",
     "build": "tsc",
-    "deploy": "yarn build && yarn publish"
+    "deploy": "yarn test && yarn build && yarn publish"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.0",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.5"
   }
 }

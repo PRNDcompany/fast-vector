@@ -86,6 +86,50 @@ export default class FastVector {
     this.y = y;
   }
 
+  public lerp(v: FastVector, t: number): FastVector {
+    return FastVector.lerp(this, v, t)
+  }
+
+  public distance(v: FastVector): number {
+    return FastVector.distance(this, v);
+  }
+
+  public add(v: FastVector): FastVector {
+    return FastVector.add(this, v);
+  }
+
+  public sub(v: FastVector): FastVector {
+    return FastVector.sub(this, v);
+  }
+
+  public mul(v: FastVector): FastVector {
+    return FastVector.mul(this, v);
+  }
+
+  public div(v: FastVector): FastVector {
+    return FastVector.div(this, v);
+  }
+
+  public dot(v: FastVector): number {
+    return FastVector.dot(this, v);
+  }
+
+  public cross(v: FastVector): number {
+    return FastVector.cross(this, v);
+  }
+
+  public equals(v: FastVector): boolean {
+    return FastVector.equals(this, v);
+  }
+
+  public magnitude(): number {
+    return FastVector.magnitude(this);
+  }
+
+  public normalize(): FastVector {
+    return FastVector.normalize(this);
+  }
+
   public toObject(): { x: number; y: number; } {
     return { x: this.x, y: this.y };
   }

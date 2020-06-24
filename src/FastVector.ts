@@ -49,6 +49,10 @@ export default class FastVector {
     return a.x * b.x + a.y * b.y;
   }
 
+  public static cross(a: FastVector, b: FastVector): number {
+    return a.x * b.y - a.y * b.x;
+  }
+
   public static reflect(i: FastVector, n: FastVector) {
     const factor = -2 * FastVector.dot(n, i);
     return new FastVector(factor * n.x + i.x, factor * n.y + i.y);
@@ -92,6 +96,14 @@ export default class FastVector {
 
   public toString(): string {
     return `(${this.x}, ${this.y})`;
+  }
+
+  public get lengthSquare(): number {
+    return this.x * this.x + this.y * this.y
+  }
+
+  public get length(): number {
+    return Math.sqrt(this.lengthSquare)
   }
 }
 

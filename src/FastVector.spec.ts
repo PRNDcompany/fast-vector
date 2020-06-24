@@ -87,6 +87,15 @@ describe('FastVector', () => {
     expect(result).toEqual(expected);
   });
 
+  it('dot', () => {
+    const a = new FastVector(100, 100);
+    const b = new FastVector(500, 200);
+    const result = FastVector.cross(a, b);
+    const expected = a.x * b.y - a.y * b.x;
+
+    expect(result).toEqual(expected);
+  });
+
   it('reflect', () => {
     const a = new FastVector(-10, -10);
     const b = new FastVector(1, 0);
@@ -104,6 +113,18 @@ describe('FastVector', () => {
 
     expect(FastVector.equals(FastVector.normalize(a), b)).toBeTruthy()
     expect(FastVector.equals(FastVector.normalize(new FastVector(0, 0)), FastVector.zero)).toBeTruthy()
+  });
+
+  it('lengthSquare', () => {
+    const a = new FastVector(4, 2);
+
+    expect(a.lengthSquare).toEqual(4 * 4 + 2 * 2);
+  });
+
+  it('length', () => {
+    const a = new FastVector(4, 2);
+
+    expect(a.length).toEqual(Math.sqrt(4 * 4 + 2 * 2));
   });
 
   it('toObject', () => {

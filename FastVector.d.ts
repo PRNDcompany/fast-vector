@@ -25,4 +25,5 @@ export default class FastVector {
     };
     toArray(): [number, number];
     toString(): string;
+    get length(): number;
 }

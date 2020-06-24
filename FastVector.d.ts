@@ -20,6 +20,17 @@ export default class FastVector {
     x: number;
     y: number;
     constructor(x?: number, y?: number);
+    lerp(v: FastVector, t: number): FastVector;
+    distance(v: FastVector): number;
+    add(v: FastVector): FastVector;
+    sub(v: FastVector): FastVector;
+    mul(v: FastVector): FastVector;
+    div(v: FastVector): FastVector;
+    dot(v: FastVector): number;
+    cross(v: FastVector): number;
+    equals(v: FastVector): boolean;
+    magnitude(): number;
+    normalize(): FastVector;
     toObject(): {
         x: number;
         y: number;

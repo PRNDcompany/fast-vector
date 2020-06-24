@@ -18,6 +18,7 @@
   "types": "FastVector.d.ts",
   "scripts": {
     "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage",
     "test": "jest",
     "build": "tsc",
     "deploy": "yarn test && yarn build && yarn publish"

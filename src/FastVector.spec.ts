@@ -1,6 +1,13 @@
 import FastVector from './FastVector';
 
 describe('FastVector', () => {
+  it('initialization', () => {
+    const a = new FastVector();
+
+    expect(a.x).toEqual(0);
+    expect(a.y).toEqual(0);
+  });
+
   it('add', () => {
     const a = new FastVector(5, 10);
     const b = new FastVector(10, 15);
@@ -58,13 +65,17 @@ describe('FastVector', () => {
   it('lerp', () => {
     const a = new FastVector(10, 5);
     const b = new FastVector(100, 50);
-    const result = FastVector.lerp(a, b, 0.5);
+    const result1 = FastVector.lerp(a, b, 0.5);
+    const result2 = FastVector.lerp(a, b, -1);
+    const result3 = FastVector.lerp(a, b, 2 );
     const expected = new FastVector(
       a.x + (b.x - a.x) * 0.5,
       a.y + (b.y - a.y) * 0.5
     );
 
-    expect(FastVector.equals(result, expected)).toBeTruthy();
+    expect(FastVector.equals(result1, expected)).toBeTruthy();
+    expect(FastVector.equals(result2, a)).toBeTruthy();
+    expect(FastVector.equals(result3, b)).toBeTruthy();
   });
 
   it('dot', () => {

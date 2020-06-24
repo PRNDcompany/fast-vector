@@ -1,0 +1,35 @@
+name: release
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - release/**
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        with:
+          ref: ${{ github.ref }}
+      - uses: actions/setup-node@v1
+        with:
+          always-auth: true
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run test
+        run: yarn test
+
+      - name: Run build
+        run: yarn build
+
+      - name: Publish
+        run: |
+          branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+          yarn config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
+          yarn publish --new-version ${branch}
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}

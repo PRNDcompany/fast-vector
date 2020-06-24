@@ -3,11 +3,15 @@ name: build
 on: [push]
 
 jobs:
-  codecov:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
       - name: Install dependencies
         run: yarn install
+
+      - name: Run test
+        run: yarn test
+
       - name: Run build
         run: yarn build

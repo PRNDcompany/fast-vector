@@ -9,8 +9,10 @@ jobs:
       - uses: actions/checkout@master
       - name: Install dependencies
         run: yarn install
+
       - name: Run test
         run: yarn test:coverage
+
       - uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}

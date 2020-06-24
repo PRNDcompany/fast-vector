@@ -20,6 +20,7 @@ export default class FastVector {
     x: number;
     y: number;
     constructor(x?: number, y?: number);
+    clone(): FastVector;
     lerp(v: FastVector, t: number): FastVector;
     distance(v: FastVector): number;
     add(v: FastVector): FastVector;

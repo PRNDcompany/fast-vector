@@ -15,10 +15,19 @@ yarn add fast-vector
 import FastVector from 'fast-vector';
 
 // add
-const a = new FastVector(50, 30);
-const b = new FastVector(10, 20);
-const c = FastVector.add(a, b);
+const a1 = new FastVector(50, 30);
+const b1 = new FastVector(10, 20);
+const c1 = a1.add(b1);
+
+// div
+const a2 = new FastVector(50, 30);
+const b2 = new FastVector(10, 20);
+const c2 = a2.div(b2);
+
+// normalize
+const a3 = new FastVector(50, 30);
+const norm = a3.normalize();
 
 // linear interpolation
-const d = FastVector.lerp(a, b, 0.5);
+const a4 = FastVector.lerp(a1, b1, 0.5);
 ```

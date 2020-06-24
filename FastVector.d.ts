@@ -12,6 +12,7 @@ export default class FastVector {
     static mul(a: FastVector, b: FastVector): FastVector;
     static div(a: FastVector, b: FastVector): FastVector;
     static dot(a: FastVector, b: FastVector): number;
+    static cross(a: FastVector, b: FastVector): number;
     static reflect(i: FastVector, n: FastVector): FastVector;
     static equals(a: FastVector, b: FastVector): boolean;
     static magnitude(a: FastVector): number;
@@ -19,10 +20,24 @@ export default class FastVector {
     x: number;
     y: number;
     constructor(x?: number, y?: number);
+    clone(): FastVector;
+    lerp(v: FastVector, t: number): FastVector;
+    distance(v: FastVector): number;
+    add(v: FastVector): FastVector;
+    sub(v: FastVector): FastVector;
+    mul(v: FastVector): FastVector;
+    div(v: FastVector): FastVector;
+    dot(v: FastVector): number;
+    cross(v: FastVector): number;
+    equals(v: FastVector): boolean;
+    magnitude(): number;
+    normalize(): FastVector;
     toObject(): {
         x: number;
         y: number;
     };
     toArray(): [number, number];
     toString(): string;
+    get lengthSquare(): number;
+    get length(): number;
 }

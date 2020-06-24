@@ -19,10 +19,7 @@ export default class FastVector {
 
   public static lerp(a: FastVector, b: FastVector, t: number): FastVector {
     t = clamp01(t);
-    return new FastVector(
-      a.x + (b.x - a.x) * t,
-      a.y + (b.y - a.y) * t
-    );
+    return new FastVector(a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t);
   }
 
   public static distance(a: FastVector, b: FastVector): number {
@@ -49,6 +46,10 @@ export default class FastVector {
     return a.x * b.x + a.y * b.y;
   }
 
+  public static cross(a: FastVector, b: FastVector): number {
+    return a.x * b.y - a.y * b.x;
+  }
+
   public static reflect(i: FastVector, n: FastVector) {
     const factor = -2 * FastVector.dot(n, i);
     return new FastVector(factor * n.x + i.x, factor * n.y + i.y);
@@ -57,7 +58,7 @@ export default class FastVector {
   public static equals(a: FastVector, b: FastVector): boolean {
     const dx = a.x - b.x;
     const dy = a.y - b.y;
-    return (dx * dx + dy * dy) < FastVector.epsilon * FastVector.epsilon;
+    return dx * dx + dy * dy < FastVector.epsilon * FastVector.epsilon;
   }
 
   public static magnitude(a: FastVector): number {
@@ -82,7 +83,55 @@ export default class FastVector {
     this.y = y;
   }
 
-  public toObject(): { x: number; y: number; } {
+  public clone(): FastVector {
+    return new FastVector(this.x, this.y);
+  }
+
+  public lerp(v: FastVector, t: number): FastVector {
+    return FastVector.lerp(this, v, t);
+  }
+
+  public distance(v: FastVector): number {
+    return FastVector.distance(this, v);
+  }
+
+  public add(v: FastVector): FastVector {
+    return FastVector.add(this, v);
+  }
+
+  public sub(v: FastVector): FastVector {
+    return FastVector.sub(this, v);
+  }
+
+  public mul(v: FastVector): FastVector {
+    return FastVector.mul(this, v);
+  }
+
+  public div(v: FastVector): FastVector {
+    return FastVector.div(this, v);
+  }
+
+  public dot(v: FastVector): number {
+    return FastVector.dot(this, v);
+  }
+
+  public cross(v: FastVector): number {
+    return FastVector.cross(this, v);
+  }
+
+  public equals(v: FastVector): boolean {
+    return FastVector.equals(this, v);
+  }
+
+  public magnitude(): number {
+    return FastVector.magnitude(this);
+  }
+
+  public normalize(): FastVector {
+    return FastVector.normalize(this);
+  }
+
+  public toObject(): { x: number; y: number } {
     return { x: this.x, y: this.y };
   }
 
@@ -92,6 +141,14 @@ export default class FastVector {
 
   public toString(): string {
     return `(${this.x}, ${this.y})`;
+  }
+
+  public get lengthSquare(): number {
+    return this.x * this.x + this.y * this.y;
+  }
+
+  public get length(): number {
+    return Math.sqrt(this.lengthSquare);
   }
 }
 

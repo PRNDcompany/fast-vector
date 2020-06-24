@@ -13,8 +13,8 @@ jobs:
         with:
           ref: ${{ github.ref }}
       - uses: actions/setup-node@v1
-          with:
-            always-auth: true
+        with:
+          always-auth: true
 
       - name: Setup npm registry
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc

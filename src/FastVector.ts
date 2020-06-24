@@ -19,10 +19,7 @@ export default class FastVector {
 
   public static lerp(a: FastVector, b: FastVector, t: number): FastVector {
     t = clamp01(t);
-    return new FastVector(
-      a.x + (b.x - a.x) * t,
-      a.y + (b.y - a.y) * t
-    );
+    return new FastVector(a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t);
   }
 
   public static distance(a: FastVector, b: FastVector): number {
@@ -61,7 +58,7 @@ export default class FastVector {
   public static equals(a: FastVector, b: FastVector): boolean {
     const dx = a.x - b.x;
     const dy = a.y - b.y;
-    return (dx * dx + dy * dy) < FastVector.epsilon * FastVector.epsilon;
+    return dx * dx + dy * dy < FastVector.epsilon * FastVector.epsilon;
   }
 
   public static magnitude(a: FastVector): number {
@@ -86,8 +83,12 @@ export default class FastVector {
     this.y = y;
   }
 
+  public clone(): FastVector {
+    return new FastVector(this.x, this.y);
+  }
+
   public lerp(v: FastVector, t: number): FastVector {
-    return FastVector.lerp(this, v, t)
+    return FastVector.lerp(this, v, t);
   }
 
   public distance(v: FastVector): number {
@@ -130,7 +131,7 @@ export default class FastVector {
     return FastVector.normalize(this);
   }
 
-  public toObject(): { x: number; y: number; } {
+  public toObject(): { x: number; y: number } {
     return { x: this.x, y: this.y };
   }
 
@@ -143,11 +144,11 @@ export default class FastVector {
   }
 
   public get lengthSquare(): number {
-    return this.x * this.x + this.y * this.y
+    return this.x * this.x + this.y * this.y;
   }
 
   public get length(): number {
-    return Math.sqrt(this.lengthSquare)
+    return Math.sqrt(this.lengthSquare);
   }
 }
 

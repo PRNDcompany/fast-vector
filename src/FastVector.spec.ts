@@ -82,12 +82,9 @@ describe('FastVector', () => {
     const b = new FastVector(100, 50);
     const result1 = FastVector.lerp(a, b, 0.5);
     const result2 = FastVector.lerp(a, b, -1);
-    const result3 = FastVector.lerp(a, b, 2 );
+    const result3 = FastVector.lerp(a, b, 2);
     const result4 = a.lerp(b, 0.5);
-    const expected = new FastVector(
-      a.x + (b.x - a.x) * 0.5,
-      a.y + (b.y - a.y) * 0.5
-    );
+    const expected = new FastVector(a.x + (b.x - a.x) * 0.5, a.y + (b.y - a.y) * 0.5);
 
     expect(FastVector.equals(result1, expected)).toBeTruthy();
     expect(FastVector.equals(result2, a)).toBeTruthy();
@@ -140,11 +137,28 @@ describe('FastVector', () => {
   it('normalize', () => {
     const a = new FastVector(10, 10);
     const radian = Math.PI * 0.25;
-    const b = new FastVector(Math.cos(radian), Math.sin(radian))
+    const b = new FastVector(Math.cos(radian), Math.sin(radian));
 
-    expect(FastVector.equals(a.normalize(), b)).toBeTruthy()
-    expect(FastVector.equals(FastVector.normalize(a), b)).toBeTruthy()
-    expect(FastVector.equals(FastVector.normalize(new FastVector(0, 0)), FastVector.zero)).toBeTruthy()
+    expect(FastVector.equals(a.normalize(), b)).toBeTruthy();
+    expect(FastVector.equals(FastVector.normalize(a), b)).toBeTruthy();
+    expect(FastVector.equals(FastVector.normalize(new FastVector(0, 0)), FastVector.zero)).toBeTruthy();
+  });
+
+  it('normalize', () => {
+    const a = new FastVector(10, 10);
+    const radian = Math.PI * 0.25;
+    const b = new FastVector(Math.cos(radian), Math.sin(radian));
+
+    expect(FastVector.equals(a.normalize(), b)).toBeTruthy();
+    expect(FastVector.equals(FastVector.normalize(a), b)).toBeTruthy();
+    expect(FastVector.equals(FastVector.normalize(new FastVector(0, 0)), FastVector.zero)).toBeTruthy();
+  });
+
+  it('clone', () => {
+    const a = new FastVector(10, 10);
+    const b = a.clone();
+
+    expect(a.equals(b)).toBeTruthy();
   });
 
   it('lengthSquare', () => {
@@ -176,4 +190,4 @@ describe('FastVector', () => {
 
     expect(a.toString()).toEqual(`(1, 2)`);
   });
-})
+});

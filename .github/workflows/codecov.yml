@@ -3,14 +3,21 @@ name: Codecov
 on: [push]
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+
   codecov:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - name: Install dependencies
+        run: yarn install
+      - name: Run test
+        run: yarn test:coverage
       - uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage.xml
           flags: unittests
           name: codecov-umbrella
           fail_ci_if_error: true

@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "after:init": ["yarn test", "yarn build"]
+  },
+  "git": {
+    "requireUpstream": false
+  },
+  "github": {
+    "release": true,
+    "tagName": "v${version}",
+    "requireCleanWorkingDir": false,
+    "requireUpstream": false,
+    "commitMessage": "Release v%s"
+  }
+}

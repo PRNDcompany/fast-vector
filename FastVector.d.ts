@@ -12,6 +12,7 @@ export default class FastVector {
     static mul(a: FastVector, b: FastVector): FastVector;
     static div(a: FastVector, b: FastVector): FastVector;
     static dot(a: FastVector, b: FastVector): number;
+    static cross(a: FastVector, b: FastVector): number;
     static reflect(i: FastVector, n: FastVector): FastVector;
     static equals(a: FastVector, b: FastVector): boolean;
     static magnitude(a: FastVector): number;
@@ -25,5 +26,6 @@ export default class FastVector {
     };
     toArray(): [number, number];
     toString(): string;
+    get lengthSquare(): number;
     get length(): number;
 }

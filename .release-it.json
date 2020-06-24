@@ -1,0 +1,11 @@
+{
+  "hooks": {
+    "after:init": ["yarn test", "yarn build"]
+  },
+  "git": {
+    "requireUpstream": false
+  },
+  "github": {
+    "release": true
+  }
+}

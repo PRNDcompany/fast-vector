@@ -1,6 +1,6 @@
 {
   "name": "fast-vector",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "bugs": {
     "url": "https://github.com/PRNDcompany/fast-vector/issues",
     "email": "dean@prnd.co.kr"
@@ -16,7 +16,13 @@
   },
   "main": "FastVector.js",
   "types": "FastVector.d.ts",
-  "keywords": ["vector", "fast", "math", "physics", "2d"],
+  "keywords": [
+    "vector",
+    "fast",
+    "math",
+    "physics",
+    "2d"
+  ],
   "scripts": {
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",

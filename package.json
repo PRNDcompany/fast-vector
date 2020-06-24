@@ -27,7 +27,8 @@
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
     "test": "jest",
-    "build": "tsc"
+    "build": "tsc",
+    "release": "source .env && release-it"
   },
   "devDependencies": {
     "@types/jest": "^26.0.0",

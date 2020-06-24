@@ -6,6 +6,10 @@
     "requireUpstream": false
   },
   "github": {
-    "release": true
+    "release": true,
+    "tagName": "v${version}",
+    "requireCleanWorkingDir": false,
+    "requireUpstream": false,
+    "commitMessage": "Release v%s"
   }
 }

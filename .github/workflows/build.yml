@@ -1,0 +1,13 @@
+name: build
+
+on: [push]
+
+jobs:
+  codecov:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Install dependencies
+        run: yarn install
+      - name: Run build
+        run: yarn build

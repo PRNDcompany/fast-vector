@@ -33,6 +33,7 @@
     "@types/jest": "^26.0.0",
     "codecov": "^3.7.0",
     "jest": "^26.0.1",
+    "release-it": "^13.6.3",
     "ts-jest": "^26.1.0",
     "typescript": "^3.9.5"
   }

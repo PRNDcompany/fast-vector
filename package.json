@@ -16,12 +16,12 @@
   },
   "main": "FastVector.js",
   "types": "FastVector.d.ts",
+  "keywords": ["vector", "fast", "math", "physics", "2d"],
   "scripts": {
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
     "test": "jest",
-    "build": "tsc",
-    "deploy": "yarn test && yarn build && yarn publish"
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/jest": "^26.0.0",

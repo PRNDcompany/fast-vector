@@ -12,7 +12,7 @@ export default class FastVector {
     static mul(a: FastVector, b: FastVector): FastVector;
     static div(a: FastVector, b: FastVector): FastVector;
     static dot(a: FastVector, b: FastVector): number;
-    static reflect(a: FastVector, b: FastVector): FastVector;
+    static reflect(i: FastVector, n: FastVector): FastVector;
     static equals(a: FastVector, b: FastVector): boolean;
     static magnitude(a: FastVector): number;
     static normalize(a: FastVector): FastVector;

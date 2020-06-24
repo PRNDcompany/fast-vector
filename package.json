@@ -14,7 +14,8 @@
     "name": "dean",
     "email": "dean@prnd.co.kr"
   },
-  "main": "index.js",
+  "main": "FastVector.js",
+  "types": "FastVector.d.ts",
   "scripts": {
     "test:watch": "jest --watchAll",
     "test": "jest",

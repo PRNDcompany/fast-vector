@@ -2,5 +2,4 @@
 .DS_Store
 node_modules
 FastVector.js
-FastVector.d.ts
 yarn-error.log

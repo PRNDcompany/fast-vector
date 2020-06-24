@@ -31,4 +31,5 @@ jobs:
       - name: Publish
         run: |
           branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
-          yarn publish --new-version ${branch}
+          npm version ${branch}
+          npm publish

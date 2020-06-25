@@ -61,15 +61,15 @@ export default class FastVector {
     return dx * dx + dy * dy < FastVector.epsilon * FastVector.epsilon;
   }
 
-  public static magnitude(a: FastVector): number {
-    return Math.sqrt(a.x * a.x + a.y * a.y);
+  public static magnitude(v: FastVector): number {
+    return Math.sqrt(v.x * v.x + v.y * v.y);
   }
 
-  public static normalize(a: FastVector): FastVector {
-    const magnitude = FastVector.magnitude(a);
+  public static normalize(v: FastVector): FastVector {
+    const magnitude = FastVector.magnitude(v);
 
     if (magnitude > FastVector.epsilon) {
-      return new FastVector(a.x / magnitude, a.y / magnitude);
+      return new FastVector(v.x / magnitude, v.y / magnitude);
     } else {
       return new FastVector(0, 0);
     }

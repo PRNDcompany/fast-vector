@@ -31,3 +31,5 @@ const norm = a3.normalize();
 // linear interpolation
 const a4 = FastVector.lerp(a1, b1, 0.5);
 ```
+
+## Documentation

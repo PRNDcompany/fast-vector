@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": ".",
-    "target": "es5",
+    "outDir": "dist",
+    "target": "es6",
     "module": "commonjs",
+    "rootDir": "src",
     "lib": [
       "dom",
       "esnext"
@@ -18,8 +19,6 @@
   },
   "exclude": [
     "src/**/*.spec.ts",
-    "FastVector.js",
-    "FastVector.d.ts",
     "node_modules"
   ]
 }

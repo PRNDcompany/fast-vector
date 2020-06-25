@@ -164,13 +164,13 @@ describe('FastVector', () => {
   it('lengthSquare', () => {
     const a = new FastVector(4, 2);
 
-    expect(a.lengthSquare).toEqual(4 * 4 + 2 * 2);
+    expect(a.lengthSquare()).toEqual(4 * 4 + 2 * 2);
   });
 
   it('length', () => {
     const a = new FastVector(4, 2);
 
-    expect(a.length).toEqual(Math.sqrt(4 * 4 + 2 * 2));
+    expect(a.length()).toEqual(Math.sqrt(4 * 4 + 2 * 2));
   });
 
   it('toObject', () => {

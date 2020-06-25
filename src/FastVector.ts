@@ -143,12 +143,12 @@ export default class FastVector {
     return `(${this.x}, ${this.y})`;
   }
 
-  public get lengthSquare(): number {
+  public lengthSquare(): number {
     return this.x * this.x + this.y * this.y;
   }
 
-  public get length(): number {
-    return Math.sqrt(this.lengthSquare);
+  public length(): number {
+    return Math.sqrt(this.lengthSquare());
   }
 }
 

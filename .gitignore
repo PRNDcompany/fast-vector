@@ -1,7 +1,7 @@
 .env
-.idea
 .DS_Store
-node_modules
-FastVector.js
-yarn-error.log
+.idea
+dist
 coverage
+node_modules
+yarn-error.log

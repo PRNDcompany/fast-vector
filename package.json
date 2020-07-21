@@ -40,7 +40,7 @@
     "@rollup/plugin-typescript": "^5.0.0",
     "@types/jest": "^26.0.0",
     "babel-preset-env": "^1.7.0",
-    "codecov": "^3.7.0",
+    "codecov": "^3.7.1",
     "jest": "^26.0.1",
     "prettier": "^2.0.5",
     "release-it": "^13.6.3",

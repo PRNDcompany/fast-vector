@@ -17,6 +17,14 @@ export default class FastVector {
 
   public static epsilon = 0.00001;
 
+  public static fromObject(obj: { x: number; y: number }): FastVector {
+    return new FastVector(obj.x, obj.y);
+  }
+
+  public static fromArray(arr: [number, number]): FastVector {
+    return new FastVector(arr[0], arr[1]);
+  }
+
   public static lerp(a: FastVector, b: FastVector, t: number): FastVector {
     t = clamp01(t);
     return new FastVector(a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t);

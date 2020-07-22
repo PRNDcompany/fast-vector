@@ -1,11 +1,25 @@
 import FastVector from './FastVector';
 
 describe('FastVector', () => {
-  it('initialization', () => {
+  it('constructor', () => {
     const a = new FastVector();
 
     expect(a.x).toEqual(0);
     expect(a.y).toEqual(0);
+  });
+
+  it('fromObject', () => {
+    const a = FastVector.fromObject({ x: 1, y: 1 });
+
+    expect(a.x).toEqual(1);
+    expect(a.y).toEqual(1);
+  });
+
+  it('fromArray', () => {
+    const a = FastVector.fromArray([1, 1]);
+
+    expect(a.x).toEqual(1);
+    expect(a.y).toEqual(1);
   });
 
   it('add', () => {

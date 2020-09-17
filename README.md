@@ -36,25 +36,27 @@ const a4 = FastVector.lerp(a1, b1, 0.5);
 
 ## Methods
 
-`.clone(): Vector`
+`.clone(): FastVector`
 
-`.add(v: Vector): Vector`
+`.add(v: FastVector): FastVector`
 
-`.sub(v: Vector): Vector`
+`.sub(v: FastVector): FastVector`
 
-`.mul(v: Vector): Vector`
+`.mul(v: FastVector): FastVector`
 
-`.div(v: Vector): Vector`
+`.div(v: FastVector): FastVector`
 
-`.dot(v: Vector): number`
+`.dot(v: FastVector): number`
 
-`.lerp(v: Vector, t: number): Vector`
+`.lerp(v: FastVector, t: number): FastVector`
 
-`.cross(v: Vector): number`
+`.cross(v: FastVector): number`
 
-`.equals(v: Vector): boolean`
+`.reflect(i: FastVector, n: FastVector): FastVector`
 
-`.distance(v: Vector): number`
+`.equals(v: FastVector): boolean`
+
+`.distance(v: FastVector): number`
 
 `.length(): number`
 
@@ -62,7 +64,7 @@ const a4 = FastVector.lerp(a1, b1, 0.5);
 
 `.magnitude(): number`
 
-`.normalize(): Vector`
+`.normalize(): FastVector`
 
 `.toObject(): { x: number; y: number }`
 
@@ -71,6 +73,10 @@ const a4 = FastVector.lerp(a1, b1, 0.5);
 `.toString(): string`
 
 ## Static Methods and Variables
+
+`FastVector.fromObject(obj: { x: number; y: number }): FastVector`
+
+`FastVector.fromArray(arr: [number, number]): FastVector`
 
 `FastVector.zero = new FastVector(0, 0)`
 
@@ -84,24 +90,24 @@ const a4 = FastVector.lerp(a1, b1, 0.5);
 
 `FastVector.epsilon = 0.00001`
 
-`FastVector.add(a: Vector, b: Vector): Vector`
+`FastVector.add(a: FastVector, b: FastVector): FastVector`
 
-`FastVector.sub(a: Vector, b: Vector): Vector`
+`FastVector.sub(a: FastVector, b: FastVector): FastVector`
 
-`FastVector.mul(a: Vector, b: Vector): Vector`
+`FastVector.mul(a: FastVector, b: FastVector): FastVector`
 
-`FastVector.div(a: Vector, b: Vector): Vector`
+`FastVector.div(a: FastVector, b: FastVector): FastVector`
 
-`FastVector.dot(a: Vector, b: Vector): number`
+`FastVector.dot(a: FastVector, b: FastVector): number`
 
-`FastVector.lerp(a: Vector, b: Vector, t: number): Vector`
+`FastVector.lerp(a: FastVector, b: FastVector, t: number): FastVector`
 
-`FastVector.cross(a: Vector, b: Vector): number`
+`FastVector.cross(a: FastVector, b: FastVector): number`
 
-`FastVector.equals(a: Vector, b: Vector): boolean`
+`FastVector.equals(a: FastVector, b: FastVector): boolean`
 
-`FastVector.distance(a: Vector, b: Vector): number`
+`FastVector.distance(a: FastVector, b: FastVector): number`
 
-`FastVector.magnitude(v: Vector): number`
+`FastVector.magnitude(v: FastVector): number`
 
-`FastVector.normalize(v: Vector): Vector`
+`FastVector.normalize(v: FastVector): FastVector`

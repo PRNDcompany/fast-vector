@@ -42,12 +42,12 @@ export default class FastVector {
     return new FastVector(a.x - b.x, a.y - b.y);
   }
 
-  public static mul(a: FastVector, b: FastVector): FastVector {
-    return new FastVector(a.x * b.x, a.y * b.y);
+  public static mul(a: FastVector, x: number, y?: number): FastVector {
+    return new FastVector(a.x * x, a.y * (y || x));
   }
 
-  public static div(a: FastVector, b: FastVector): FastVector {
-    return new FastVector(a.x / b.x, a.y / b.y);
+  public static div(a: FastVector, x: number, y?: number): FastVector {
+    return new FastVector(a.x / x, a.y / (y || x));
   }
 
   public static dot(a: FastVector, b: FastVector): number {
@@ -69,15 +69,15 @@ export default class FastVector {
     return dx * dx + dy * dy < FastVector.epsilon * FastVector.epsilon;
   }
 
-  public static magnitude(v: FastVector): number {
-    return Math.sqrt(v.x * v.x + v.y * v.y);
+  public static magnitude(vector: FastVector): number {
+    return Math.sqrt(vector.x * vector.x + vector.y * vector.y);
   }
 
-  public static normalize(v: FastVector): FastVector {
-    const magnitude = FastVector.magnitude(v);
+  public static normalize(vector: FastVector): FastVector {
+    const magnitude = FastVector.magnitude(vector);
 
     if (magnitude > FastVector.epsilon) {
-      return new FastVector(v.x / magnitude, v.y / magnitude);
+      return new FastVector(vector.x / magnitude, vector.y / magnitude);
     } else {
       return new FastVector(0, 0);
     }
@@ -95,40 +95,42 @@ export default class FastVector {
     return new FastVector(this.x, this.y);
   }
 
-  public lerp(v: FastVector, t: number): FastVector {
-    return FastVector.lerp(this, v, t);
+  public lerp(vector: FastVector, t: number): FastVector {
+    return FastVector.lerp(this, vector, t);
   }
 
-  public distance(v: FastVector): number {
-    return FastVector.distance(this, v);
+  public distance(vector: FastVector): number {
+    return FastVector.distance(this, vector);
   }
 
-  public add(v: FastVector): FastVector {
-    return FastVector.add(this, v);
+  public add(vector: FastVector): FastVector {
+    return FastVector.add(this, vector);
   }
 
-  public sub(v: FastVector): FastVector {
-    return FastVector.sub(this, v);
+  public sub(vector: FastVector): FastVector {
+    return FastVector.sub(this, vector);
   }
 
-  public mul(v: FastVector): FastVector {
-    return FastVector.mul(this, v);
+  public mul(value: number): FastVector
+  public mul(x: number, y?: number): FastVector {
+    return FastVector.mul(this, x, y);
   }
 
-  public div(v: FastVector): FastVector {
-    return FastVector.div(this, v);
+  public div(value: number): FastVector
+  public div(x: number, y?: number): FastVector {
+    return FastVector.div(this, x, y);
   }
 
-  public dot(v: FastVector): number {
-    return FastVector.dot(this, v);
+  public dot(vector: FastVector): number {
+    return FastVector.dot(this, vector);
   }
 
-  public cross(v: FastVector): number {
-    return FastVector.cross(this, v);
+  public cross(vector: FastVector): number {
+    return FastVector.cross(this, vector);
   }
 
-  public equals(v: FastVector): boolean {
-    return FastVector.equals(this, v);
+  public equals(vector: FastVector): boolean {
+    return FastVector.equals(this, vector);
   }
 
   public magnitude(): number {

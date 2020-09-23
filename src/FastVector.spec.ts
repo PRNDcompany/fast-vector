@@ -48,26 +48,18 @@ describe('FastVector', () => {
 
   it('mul', () => {
     const a = new FastVector(10, 10);
-    const b = new FastVector(5, 15);
-    const result1 = FastVector.mul(a, b);
-    const result2 = a.mul(b);
+    const result1 = a.mul(10);
 
-    expect(result1.x).toEqual(50);
-    expect(result1.y).toEqual(150);
-    expect(result2.x).toEqual(50);
-    expect(result2.y).toEqual(150);
+    expect(result1.x).toEqual(100);
+    expect(result1.y).toEqual(100);
   });
 
   it('div', () => {
     const a = new FastVector(10, 10);
-    const b = new FastVector(5, 10);
-    const result1 = FastVector.div(a, b);
-    const result2 = a.div(b);
+    const result1 = a.div(10);
 
-    expect(result1.x).toEqual(2);
+    expect(result1.x).toEqual(1);
     expect(result1.y).toEqual(1);
-    expect(result2.x).toEqual(2);
-    expect(result2.y).toEqual(1);
   });
 
   it('distance', () => {

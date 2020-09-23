@@ -1,5 +1,5 @@
 # fast-vector
-🤪 A Vector class for TypeScript or JavaScript.
+🤪 A Vector class for TypeScript
 
 [![Actions Status](https://github.com/PRNDcompany/fast-vector/workflows/build/badge.svg)](https://github.com/PRNDcompany/fast-vector/actions)
 [![codecov](https://codecov.io/gh/PRNDcompany/fast-vector/branch/master/graph/badge.svg)](https://codecov.io/gh/PRNDcompany/fast-vector)
@@ -23,8 +23,7 @@ const c1 = a1.add(b1);
 
 // div
 const a2 = new FastVector(50, 30);
-const b2 = new FastVector(10, 20);
-const c2 = a2.div(b2);
+const c2 = a2.div(10);
 
 // normalize
 const a3 = new FastVector(50, 30);
@@ -42,9 +41,13 @@ const a4 = FastVector.lerp(a1, b1, 0.5);
 
 `.sub(v: FastVector): FastVector`
 
-`.mul(v: FastVector): FastVector`
+`.mul(value: number): FastVector`
 
-`.div(v: FastVector): FastVector`
+`.mul(x: number, y?: number): FastVector`
+
+`.div(value: number): FastVector`
+
+`.div(x: number, y?: number): FastVector`
 
 `.dot(v: FastVector): number`
 
@@ -94,9 +97,13 @@ const a4 = FastVector.lerp(a1, b1, 0.5);
 
 `FastVector.sub(a: FastVector, b: FastVector): FastVector`
 
-`FastVector.mul(a: FastVector, b: FastVector): FastVector`
+`FastVector.mul(a: FastVector, value: number): FastVector`
 
-`FastVector.div(a: FastVector, b: FastVector): FastVector`
+`FastVector.mul(a: FastVector, x: number, y?: number): FastVector`
+
+`FastVector.div(a: FastVector, value: number): FastVector`
+
+`FastVector.div(a: FastVector, x: number, y?: number): FastVector`
 
 `FastVector.dot(a: FastVector, b: FastVector): number`
 

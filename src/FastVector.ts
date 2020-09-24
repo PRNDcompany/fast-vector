@@ -66,6 +66,10 @@ export default class FastVector {
     return a.x * b.y - a.y * b.x;
   }
 
+  public static angle(a: FastVector, b: FastVector): number {
+    return Math.atan2(FastVector.cross(a, b), FastVector.dot(a, b));
+  }
+
   public static limit(vector: FastVector, length: number): FastVector {
     const magnitudeSquare = vector.magnitudeSquare();
     if (magnitudeSquare > length * length) {
@@ -104,6 +108,17 @@ export default class FastVector {
     }
   }
 
+  public static intersection(v1: FastVector, v2: FastVector, v3: FastVector, v4: FastVector): FastVector | null {
+    const px = (v1.x * v2.y - v1.y * v2.x) * (v3.x - v4.x) - (v1.x - v2.x) * (v3.x * v4.y - v3.y * v4.x);
+    const py = (v1.x * v2.y - v1.y * v2.x) * (v3.y - v4.y) - (v1.y - v2.y) * (v3.x * v4.y - v3.y * v4.x);
+    const p = (v1.x - v2.x) * (v3.y - v4.y) - (v1.y - v2.y) * (v3.x - v4.x);
+    if (p === 0) {
+      return null;
+    }
+
+    return new FastVector(px / p, py / p);
+  }
+
   public x: number;
   public y: number;
 
@@ -124,8 +139,8 @@ export default class FastVector {
     return FastVector.distance(this, vector);
   }
 
-  public add(vector: FastVector): FastVector
-  public add(x: number, y?: number): FastVector
+  public add(vector: FastVector): FastVector;
+  public add(x: number, y?: number): FastVector;
   public add(x: FastVector | number, y?: number): FastVector {
     if (typeof x === 'number') {
       return FastVector.add(this, x, y);
@@ -134,8 +149,8 @@ export default class FastVector {
     return FastVector.add(this, x);
   }
 
-  public sub(vector: FastVector): FastVector
-  public sub(x: number, y?: number): FastVector
+  public sub(vector: FastVector): FastVector;
+  public sub(x: number, y?: number): FastVector;
   public sub(x: FastVector | number, y?: number): FastVector {
     if (typeof x === 'number') {
       return FastVector.sub(this, x, y);
@@ -180,6 +195,10 @@ export default class FastVector {
 
   public normalize(): FastVector {
     return FastVector.normalize(this);
+  }
+
+  public angle(vector: FastVector): number {
+    return FastVector.angle(this, vector);
   }
 
   public toObject(): { x: number; y: number } {

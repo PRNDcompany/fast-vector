@@ -184,14 +184,34 @@ describe('FastVector', () => {
     expect(FastVector.equals(FastVector.normalize(new FastVector(0, 0)), FastVector.zero)).toBeTruthy();
   });
 
-  it('normalize', () => {
-    const a = new FastVector(10, 10);
-    const radian = Math.PI * 0.25;
-    const b = new FastVector(Math.cos(radian), Math.sin(radian));
+  it('intersection', () => {
+    const v1 = new FastVector(50, 0);
+    const v2 = new FastVector(50, 100);
+    const v3 = new FastVector(0, 50);
+    const v4 = new FastVector(100, 50);
 
-    expect(FastVector.equals(a.normalize(), b)).toBeTruthy();
-    expect(FastVector.equals(FastVector.normalize(a), b)).toBeTruthy();
-    expect(FastVector.equals(FastVector.normalize(new FastVector(0, 0)), FastVector.zero)).toBeTruthy();
+    const v5 = new FastVector(0, 0);
+    const v6 = new FastVector(100, 0);
+    const v7 = new FastVector(0, 100);
+    const v8 = new FastVector(100, 100);
+
+    const result1 = FastVector.intersection(v1, v2, v3, v4);
+    const result2 = FastVector.intersection(v5, v6, v7, v8);
+
+    if (!result1) {
+      throw Error('result1 is null.');
+    }
+
+    expect(result1.equals(new FastVector(50, 50))).toBeTruthy();
+    expect(result2).toEqual(null);
+  });
+
+  it('angle', () => {
+    const a = new FastVector(100, 0);
+    const b = new FastVector(0, 100);
+    const result1 = a.angle(b);
+
+    expect(result1).toEqual(Math.PI * 0.5);
   });
 
   it('clone', () => {

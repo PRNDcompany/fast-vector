@@ -132,11 +132,33 @@ describe('FastVector', () => {
     expect(result2).toEqual(expected);
   });
 
+  it('limit', () => {
+    const a = new FastVector(100, 100);
+    const b = new FastVector(10, 10);
+    const result1 = a.limit(5);
+    const result2 = b.limit(100);
+    const expected = a.normalize().mul(5);
+
+    expect(result1.equals(expected)).toBeTruthy()
+    expect(result2.equals(b)).toBeTruthy();
+    expect(result2 === b).toBeFalsy();
+  });
+
   it('magnitude', () => {
     const a = new FastVector(100, 100);
     const result1 = FastVector.magnitude(a);
     const result2 = a.magnitude();
     const expected = Math.sqrt(a.x * a.x + a.y * a.y);
+
+    expect(result1).toEqual(expected);
+    expect(result2).toEqual(expected);
+  });
+
+  it('magnitudeSquare', () => {
+    const a = new FastVector(100, 100);
+    const result1 = FastVector.magnitudeSquare(a);
+    const result2 = a.magnitudeSquare();
+    const expected = a.x * a.x + a.y * a.y;
 
     expect(result1).toEqual(expected);
     expect(result2).toEqual(expected);
@@ -177,18 +199,6 @@ describe('FastVector', () => {
     const b = a.clone();
 
     expect(a.equals(b)).toBeTruthy();
-  });
-
-  it('lengthSquare', () => {
-    const a = new FastVector(4, 2);
-
-    expect(a.lengthSquare()).toEqual(4 * 4 + 2 * 2);
-  });
-
-  it('length', () => {
-    const a = new FastVector(4, 2);
-
-    expect(a.length()).toEqual(Math.sqrt(4 * 4 + 2 * 2));
   });
 
   it('toObject', () => {

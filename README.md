@@ -1,11 +1,10 @@
 # fast-vector
-🤪 A Vector class for TypeScript
-
 [![Actions Status](https://github.com/PRNDcompany/fast-vector/workflows/build/badge.svg)](https://github.com/PRNDcompany/fast-vector/actions)
 [![codecov](https://codecov.io/gh/PRNDcompany/fast-vector/branch/master/graph/badge.svg)](https://codecov.io/gh/PRNDcompany/fast-vector)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![https://nodei.co/npm/fast-vector.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/fast-vector.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/fast-vector)
+
+🤪 FastVector is a library for working with Vector2 in Javascript.
 
 ## Instalation
 ```shell script
@@ -21,6 +20,7 @@ const a1 = new FastVector(50, 30);
 const b1 = new FastVector(10, 20);
 const c1 = a1.add(10, 5);
 
+// sub
 const a2 = new FastVector(50, 30);
 const b2 = new FastVector(10, 20);
 const c2 = a1.sub(b1);
@@ -53,23 +53,23 @@ const a5 = FastVector.lerp(a1, b1, 0.5);
 
 `.div(x: number, y?: number): FastVector`
 
-`.dot(v: FastVector): number`
+`.dot(vector: FastVector): number`
 
-`.lerp(v: FastVector, t: number): FastVector`
+`.lerp(vector: FastVector, t: number): FastVector`
 
-`.cross(v: FastVector): number`
+`.cross(vector: FastVector): number`
+
+`.limit(length: number): FastVector`
 
 `.reflect(i: FastVector, n: FastVector): FastVector`
 
-`.equals(v: FastVector): boolean`
+`.equals(vector: FastVector): boolean`
 
-`.distance(v: FastVector): number`
-
-`.length(): number`
-
-`.lengthSquare(): number`
+`.distance(vector: FastVector): number`
 
 `.magnitude(): number`
+
+`.magnitudeSquare(): number`
 
 `.normalize(): FastVector`
 
@@ -79,7 +79,7 @@ const a5 = FastVector.lerp(a1, b1, 0.5);
 
 `.toString(): string`
 
-## Static method
+## Static methods
 
 `FastVector.fromObject(obj: { x: number; y: number }): FastVector`
 
@@ -115,10 +115,14 @@ const a5 = FastVector.lerp(a1, b1, 0.5);
 
 `FastVector.cross(a: FastVector, b: FastVector): number`
 
+`FastVector.limit(vector: FastVector, length: number): FastVector`
+
 `FastVector.equals(a: FastVector, b: FastVector): boolean`
 
 `FastVector.distance(a: FastVector, b: FastVector): number`
 
-`FastVector.magnitude(v: FastVector): number`
+`FastVector.magnitude(vector: FastVector): number`
 
-`FastVector.normalize(v: FastVector): FastVector`
+`FastVector.magnitudeSquare(vector: FastVector): number`
+
+`FastVector.normalize(vector: FastVector): FastVector`

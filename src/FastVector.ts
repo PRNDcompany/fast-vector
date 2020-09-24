@@ -66,6 +66,15 @@ export default class FastVector {
     return a.x * b.y - a.y * b.x;
   }
 
+  public static limit(vector: FastVector, length: number): FastVector {
+    const magnitudeSquare = vector.magnitudeSquare();
+    if (magnitudeSquare > length * length) {
+      return vector.div(Math.sqrt(magnitudeSquare)).mul(length);
+    }
+
+    return vector.clone();
+  }
+
   public static reflect(i: FastVector, n: FastVector) {
     const factor = -2 * FastVector.dot(n, i);
     return new FastVector(factor * n.x + i.x, factor * n.y + i.y);
@@ -78,7 +87,11 @@ export default class FastVector {
   }
 
   public static magnitude(vector: FastVector): number {
-    return Math.sqrt(vector.x * vector.x + vector.y * vector.y);
+    return Math.sqrt(FastVector.magnitudeSquare(vector));
+  }
+
+  public static magnitudeSquare(vector: FastVector) {
+    return vector.x * vector.x + vector.y * vector.y;
   }
 
   public static normalize(vector: FastVector): FastVector {
@@ -111,7 +124,7 @@ export default class FastVector {
     return FastVector.distance(this, vector);
   }
 
-  public add(x: FastVector): FastVector
+  public add(vector: FastVector): FastVector
   public add(x: number, y?: number): FastVector
   public add(x: FastVector | number, y?: number): FastVector {
     if (typeof x === 'number') {
@@ -121,7 +134,7 @@ export default class FastVector {
     return FastVector.add(this, x);
   }
 
-  public sub(x: FastVector): FastVector
+  public sub(vector: FastVector): FastVector
   public sub(x: number, y?: number): FastVector
   public sub(x: FastVector | number, y?: number): FastVector {
     if (typeof x === 'number') {
@@ -149,12 +162,20 @@ export default class FastVector {
     return FastVector.cross(this, vector);
   }
 
+  public limit(length: number): FastVector {
+    return FastVector.limit(this, length);
+  }
+
   public equals(vector: FastVector): boolean {
     return FastVector.equals(this, vector);
   }
 
   public magnitude(): number {
     return FastVector.magnitude(this);
+  }
+
+  public magnitudeSquare(): number {
+    return FastVector.magnitudeSquare(this);
   }
 
   public normalize(): FastVector {
@@ -171,14 +192,6 @@ export default class FastVector {
 
   public toString(): string {
     return `(${this.x}, ${this.y})`;
-  }
-
-  public lengthSquare(): number {
-    return this.x * this.x + this.y * this.y;
-  }
-
-  public length(): number {
-    return Math.sqrt(this.lengthSquare());
   }
 }
 

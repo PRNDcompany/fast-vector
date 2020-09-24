@@ -27,11 +27,17 @@ describe('FastVector', () => {
     const b = new FastVector(10, 15);
     const result1 = FastVector.add(a, b);
     const result2 = a.add(b);
+    const result3 = a.add(10);
+    const result4 = a.add(5, 10);
 
     expect(result1.x).toEqual(15);
     expect(result1.y).toEqual(25);
     expect(result2.x).toEqual(15);
     expect(result2.y).toEqual(25);
+    expect(result3.x).toEqual(15);
+    expect(result3.y).toEqual(10);
+    expect(result4.x).toEqual(10);
+    expect(result4.y).toEqual(20);
   });
 
   it('sub', () => {
@@ -39,11 +45,17 @@ describe('FastVector', () => {
     const b = new FastVector(5, 15);
     const result1 = FastVector.sub(a, b);
     const result2 = a.sub(b);
+    const result3 = a.sub(10);
+    const result4 = a.sub(5, 10);
 
     expect(result1.x).toEqual(5);
     expect(result1.y).toEqual(-5);
     expect(result2.x).toEqual(5);
     expect(result2.y).toEqual(-5);
+    expect(result3.x).toEqual(0);
+    expect(result3.y).toEqual(10);
+    expect(result4.x).toEqual(5);
+    expect(result4.y).toEqual(0);
   });
 
   it('mul', () => {

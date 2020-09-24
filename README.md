@@ -19,27 +19,31 @@ import FastVector from 'fast-vector';
 // add
 const a1 = new FastVector(50, 30);
 const b1 = new FastVector(10, 20);
-const c1 = a1.add(b1);
+const c1 = a1.add(10, 5);
+
+const a2 = new FastVector(50, 30);
+const b2 = new FastVector(10, 20);
+const c2 = a1.sub(b1);
 
 // div
-const a2 = new FastVector(50, 30);
-const c2 = a2.div(10);
+const a3 = new FastVector(50, 30);
+const c3 = a2.div(10);
 
 // normalize
-const a3 = new FastVector(50, 30);
-const norm = a3.normalize();
+const a4 = new FastVector(50, 30);
+const norm = a4.normalize();
 
 // linear interpolation
-const a4 = FastVector.lerp(a1, b1, 0.5);
+const a5 = FastVector.lerp(a1, b1, 0.5);
 ```
 
 ## Methods
 
 `.clone(): FastVector`
 
-`.add(v: FastVector): FastVector`
+`.add(x: FastVector | number, y?: number): FastVector`
 
-`.sub(v: FastVector): FastVector`
+`.sub(x: FastVector | number, y?: number): FastVector`
 
 `.mul(value: number): FastVector`
 
@@ -75,7 +79,7 @@ const a4 = FastVector.lerp(a1, b1, 0.5);
 
 `.toString(): string`
 
-## Static Methods and Variables
+## Static method
 
 `FastVector.fromObject(obj: { x: number; y: number }): FastVector`
 
@@ -93,9 +97,9 @@ const a4 = FastVector.lerp(a1, b1, 0.5);
 
 `FastVector.epsilon = 0.00001`
 
-`FastVector.add(a: FastVector, b: FastVector): FastVector`
+`FastVector.add(a: FastVector, x: FastVector | number, y?: number): FastVector`
 
-`FastVector.sub(a: FastVector, b: FastVector): FastVector`
+`FastVector.sub(a: FastVector, x: FastVector | number, y?: number): FastVector`
 
 `FastVector.mul(a: FastVector, value: number): FastVector`
 

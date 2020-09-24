@@ -34,12 +34,20 @@ export default class FastVector {
     return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
   }
 
-  public static add(a: FastVector, b: FastVector): FastVector {
-    return new FastVector(a.x + b.x, a.y + b.y);
+  public static add(a: FastVector, x: FastVector | number, y?: number): FastVector {
+    if (typeof x === 'number') {
+      return new FastVector(a.x + x, a.y + (y || 0));
+    }
+
+    return new FastVector(a.x + x.x, a.y + x.y);
   }
 
-  public static sub(a: FastVector, b: FastVector): FastVector {
-    return new FastVector(a.x - b.x, a.y - b.y);
+  public static sub(a: FastVector, x: FastVector | number, y?: number): FastVector {
+    if (typeof x === 'number') {
+      return new FastVector(a.x - x, a.y - (y || 0));
+    }
+
+    return new FastVector(a.x - x.x, a.y - x.y);
   }
 
   public static mul(a: FastVector, x: number, y?: number): FastVector {
@@ -103,20 +111,32 @@ export default class FastVector {
     return FastVector.distance(this, vector);
   }
 
-  public add(vector: FastVector): FastVector {
-    return FastVector.add(this, vector);
+  public add(x: FastVector): FastVector
+  public add(x: number, y?: number): FastVector
+  public add(x: FastVector | number, y?: number): FastVector {
+    if (typeof x === 'number') {
+      return FastVector.add(this, x, y);
+    }
+
+    return FastVector.add(this, x);
   }
 
-  public sub(vector: FastVector): FastVector {
-    return FastVector.sub(this, vector);
+  public sub(x: FastVector): FastVector
+  public sub(x: number, y?: number): FastVector
+  public sub(x: FastVector | number, y?: number): FastVector {
+    if (typeof x === 'number') {
+      return FastVector.sub(this, x, y);
+    }
+
+    return FastVector.sub(this, x);
   }
 
-  public mul(value: number): FastVector
+  public mul(value: number): FastVector;
   public mul(x: number, y?: number): FastVector {
     return FastVector.mul(this, x, y);
   }
 
-  public div(value: number): FastVector
+  public div(value: number): FastVector;
   public div(x: number, y?: number): FastVector {
     return FastVector.div(this, x, y);
   }

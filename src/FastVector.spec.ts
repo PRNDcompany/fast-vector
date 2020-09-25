@@ -1,10 +1,46 @@
 import FastVector from './FastVector';
 
 describe('FastVector', () => {
+
   it('constructor', () => {
     const a = new FastVector();
 
     expect(a.x).toEqual(0);
+    expect(a.y).toEqual(0);
+  });
+
+  it('zero', () => {
+    const a = FastVector.zero;
+
+    expect(a.x).toEqual(0);
+    expect(a.y).toEqual(0);
+  });
+
+  it('up', () => {
+    const a = FastVector.up;
+
+    expect(a.x).toEqual(0);
+    expect(a.y).toEqual(-1);
+  });
+
+  it('down', () => {
+    const a = FastVector.down;
+
+    expect(a.x).toEqual(0);
+    expect(a.y).toEqual(1);
+  });
+
+  it('left', () => {
+    const a = FastVector.left;
+
+    expect(a.x).toEqual(-1);
+    expect(a.y).toEqual(0);
+  });
+
+  it('right', () => {
+    const a = FastVector.right;
+
+    expect(a.x).toEqual(1);
     expect(a.y).toEqual(0);
   });
 

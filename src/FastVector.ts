@@ -9,11 +9,25 @@ function clamp01(value: number): number {
 }
 
 export default class FastVector {
-  public static readonly zero = new FastVector(0, 0);
-  public static readonly up = new FastVector(0, -1);
-  public static readonly down = new FastVector(0, 1);
-  public static readonly left = new FastVector(-1, 0);
-  public static readonly right = new FastVector(1, 0);
+  public static get zero(): FastVector {
+    return new FastVector(0, 0);
+  }
+
+  public static get up(): FastVector {
+    return new FastVector(0, -1);
+  }
+
+  public static get down(): FastVector {
+    return new FastVector(0, 1);
+  }
+
+  public static get left(): FastVector {
+    return new FastVector(-1, 0);
+  }
+
+  public static get right(): FastVector {
+    return new FastVector(1, 0);
+  }
 
   public static epsilon = 0.00001;
 
@@ -221,9 +235,3 @@ export default class FastVector {
     return `(${this.x}, ${this.y})`;
   }
 }
-
-Object.freeze(FastVector.zero);
-Object.freeze(FastVector.up);
-Object.freeze(FastVector.down);
-Object.freeze(FastVector.left);
-Object.freeze(FastVector.right);

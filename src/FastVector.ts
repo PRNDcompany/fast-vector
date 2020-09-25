@@ -17,12 +17,12 @@ export default class FastVector {
 
   public static epsilon = 0.00001;
 
-  public static fromObject(obj: { x: number; y: number }): FastVector {
-    return new FastVector(obj.x, obj.y);
+  public static fromObject({ x, y }: { x: number; y: number }): FastVector {
+    return new FastVector(x, y);
   }
 
-  public static fromArray(arr: [number, number]): FastVector {
-    return new FastVector(arr[0], arr[1]);
+  public static fromArray([x, y]: [number, number]): FastVector {
+    return new FastVector(x, y);
   }
 
   public static lerp(a: FastVector, b: FastVector, t: number): FastVector {
@@ -66,7 +66,11 @@ export default class FastVector {
     return a.x * b.y - a.y * b.x;
   }
 
-  public static angle(a: FastVector, b: FastVector): number {
+  public static angle(vector: FastVector): number {
+    return Math.atan2(vector.y, vector.x);
+  }
+
+  public static angleBetween(a: FastVector, b: FastVector): number {
     return Math.atan2(FastVector.cross(a, b), FastVector.dot(a, b));
   }
 
@@ -197,8 +201,12 @@ export default class FastVector {
     return FastVector.normalize(this);
   }
 
-  public angle(vector: FastVector): number {
-    return FastVector.angle(this, vector);
+  public angle(): number {
+    return FastVector.angle(this);
+  }
+
+  public angleBetween(vector: FastVector): number {
+    return FastVector.angleBetween(this, vector);
   }
 
   public toObject(): { x: number; y: number } {

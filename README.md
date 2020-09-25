@@ -41,8 +41,7 @@ const a5 = FastVector.lerp(a1, b1, 0.5);
 
 ## Methods
 
-> `.clone(): FastVector` 
-Get a clone of the vector
+`.clone(): FastVector`
 
 `.add(x: FastVector | number, y?: number): FastVector`
 
@@ -61,6 +60,10 @@ Get a clone of the vector
 `.lerp(vector: FastVector, t: number): FastVector`
 
 `.cross(vector: FastVector): number`
+
+`.angle(): number`
+
+`.angleBetween(vector: FastVector): number`
 
 `.limit(length: number): FastVector`
 
@@ -81,8 +84,6 @@ Get a clone of the vector
 `.toArray(): [number, number]`
 
 `.toString(): string`
-
-## Static methods
 
 `FastVector.fromObject(obj: { x: number; y: number }): FastVector`
 
@@ -118,6 +119,10 @@ Get a clone of the vector
 
 `FastVector.cross(a: FastVector, b: FastVector): number`
 
+`FastVector.angle(vector: FastVector): number`
+
+`FastVector.angleBetween(a: FastVector, b: FastVector): number`
+
 `FastVector.limit(vector: FastVector, length: number): FastVector`
 
 `FastVector.equals(a: FastVector, b: FastVector): boolean`
@@ -129,7 +134,3 @@ Get a clone of the vector
 `FastVector.magnitudeSquare(vector: FastVector): number`
 
 `FastVector.normalize(vector: FastVector): FastVector`
-
-##
-
-[![https://nodei.co/npm/fast-vector.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/fast-vector.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/fast-vector)

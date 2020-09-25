@@ -207,9 +207,16 @@ describe('FastVector', () => {
   });
 
   it('angle', () => {
-    const a = new FastVector(100, 0);
-    const b = new FastVector(0, 100);
-    const result1 = a.angle(b);
+    const a = new FastVector(0, 100);
+    const result1 = a.angle();
+
+    expect(result1).toEqual(Math.PI * 0.5);
+  });
+
+  it('angleBetween', () => {
+    const a = new FastVector(100, 100);
+    const b = new FastVector(-100, 100);
+    const result1 = a.angleBetween(b);
 
     expect(result1).toEqual(Math.PI * 0.5);
   });

@@ -250,11 +250,11 @@ describe('FastVector', () => {
   });
 
   it('angleBetween', () => {
-    const a = new FastVector(100, 100);
-    const b = new FastVector(-100, 100);
+    const a = new FastVector(0, 0);
+    const b = new FastVector(100, 100);
     const result1 = a.angleBetween(b);
 
-    expect(result1).toEqual(Math.PI * 0.5);
+    expect(result1).toEqual(Math.PI * 0.25);
   });
 
   it('clone', () => {

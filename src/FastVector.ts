@@ -85,7 +85,7 @@ export default class FastVector {
   }
 
   public static angleBetween(a: FastVector, b: FastVector): number {
-    return Math.atan2(FastVector.cross(a, b), FastVector.dot(a, b));
+    return Math.atan2(b.y - a.y, b.x - a.x);
   }
 
   public static limit(vector: FastVector, length: number): FastVector {

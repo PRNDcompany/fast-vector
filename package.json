@@ -43,7 +43,7 @@
     "codecov": "^3.7.2",
     "jest": "^26.0.1",
     "prettier": "^2.0.5",
-    "release-it": "^13.6.3",
+    "release-it": "^14.6.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.18.0",
     "rollup-plugin-terser": "^6.1.0",

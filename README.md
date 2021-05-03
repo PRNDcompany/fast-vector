@@ -8,7 +8,7 @@
 
 🚀 FastVector is a library for working with Vector2 in Javascript.
 
-## Instalation
+## Installation
 ```shell script
 yarn add fast-vector
 ```

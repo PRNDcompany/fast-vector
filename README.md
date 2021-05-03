@@ -1,12 +1,12 @@
 # fast-vector
+🚀 FastVector is a library for working with Vector2 in Javascript.
+
 [![Actions Status](https://github.com/PRNDcompany/fast-vector/workflows/build/badge.svg)](https://github.com/PRNDcompany/fast-vector/actions)
 [![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen)](https://www.npmjs.com/package/fast-vector)
 [![codecov](https://codecov.io/gh/PRNDcompany/fast-vector/branch/master/graph/badge.svg)](https://codecov.io/gh/PRNDcompany/fast-vector)
 [![Package Quality](https://npm.packagequality.com/shield/fast-vector.svg)](https://packagequality.com/#?package=fast-vector)
 [![NPM](https://img.shields.io/npm/v/fast-vector.svg)](https://www.npmjs.com/package/fast-vector)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-
-🚀 FastVector is a library for working with Vector2 in Javascript.
 
 ## Installation
 ```shell script
